@@ -125,7 +125,7 @@
       ;tabbar            ; FIXME an (incomplete) tab bar for Emacs
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        window-select     ; visually switch windows
-      ;posframe          ; use child frames where possible (Emacs 26+ only)
+       posframe          ; use child frames where possible (Emacs 26+ only)
 
        :tools
        dired             ; making dired pretty [functional]
@@ -176,13 +176,16 @@
         +babel           ; running code in org
         +capture         ; org-capture in and outside of Emacs
         +export          ; Exporting org to whatever you want
+        +ipython
         +present         ; Emacs for presentations
         +publish)        ; Emacs+Org as a static site generator
        perl              ; write code no one else can comprehend
        php               ; perl's insecure younger brother
       ;plantuml          ; diagrams for confusing people more
       ;purescript        ; javascript, but functional
-       python            ; beautiful is better than ugly
+       (python           ; beautiful is better than ugly
+        +conda
+        +lpy)
        rest              ; Emacs as a REST client
        ruby              ; 1.step do {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
       ;rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()

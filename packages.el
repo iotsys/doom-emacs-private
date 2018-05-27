@@ -6,8 +6,10 @@
 (package! floobits)
 (package! company-box)
 (package! ivy-yasnippet)
-;; Experimental
+(package! evil-ediff)
 (package! smtpmail)
+;; Experimental
+(package! exec-path-from-shell)
 (package! docker)
 (package! libmpdel)
 (package! mpdel)

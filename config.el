@@ -18,7 +18,7 @@
  (:leader
    (:prefix "o"
      :desc "Agenda" :n "a" #'org-agenda
-     :desc "eShell" :n "e" #'eshell
+     :desc "eShell" :n "e" #'+eshell/open-popup
      :desc "i.org" :n "o" #'emiller/visit-i-org
      :desc "APP: Email" :n "m" #'=mail)
    (:prefix "p"
@@ -34,6 +34,43 @@
 ;;
 ;; Modules
 ;;
+(setq python-shell-interpreter "ipython"
+          python-shell-prompt-detect-enabled nil
+          python-shell-completion-native-disabled-interpreters '("pypy" "jupyter" "ipython")
+          python-shell-interpreter-args "--simple-prompt --pylab"
+          python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+          python-shell-prompt-block-regexp "\\.\\.\\.\\.: "
+          python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: ")
+;; exec-path-from-shell
+(def-package! exec-path-from-shell)
+;; conda
+
+;; (def-package! conda
+;;   ;; :when (featurep! +conda)
+;;   :after (python)
+;;   :config
+;;   (setq conda-anaconda-home "/home/emiller/.anaconda3")
+;;   (setq +python-conda-home
+;;         '("/home/emiller/.anaconda3"
+;;           "/ssh:edmund@promoter.utdallas.edu:/home/emiller/miniconda3"))
+;;   (advice-add 'anaconda-mode-bootstrap :override #'*anaconda-mode-bootstrap)
+;;   (conda-env-autoactivate-mode -1)
+;;   ;; (add-hook 'python-mode-hook #'conda-env-activate-for-buffer)
+;;   (conda-env-initialize-interactive-shells)
+;;   (conda-env-initialize-eshell)
+;;   ;; Version management with pyenv
+;;   (add-hook 'conda-postactivate-hook #'+python|add-version-to-modeline)
+;;   (add-hook 'conda-postdeactivate-hook #'+python|add-version-to-modeline))
+
+;; ein
+(set! :ein-notebook-dir "~/src/jupyter/")
+
+;; evil-ediff
+(def-package! evil-ediff)
+
+;; solidity-mode
+(setq solidity-solc-path "~/.node_modules/lib/node_modules/solc/solcjs")
+(setq solidity-solium-path "~/.node_modules/lib/node_modules/solium/bin/solium.js")
 
 ;; ivy-yasnippet
 (def-package! ivy-yasnippet
