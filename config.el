@@ -44,6 +44,15 @@
 ;; Modules
 ;;
 
+;; erc
+(set! :irc "chat.freenode.net"
+    `(:tls t
+      :port "6697"
+      :nick "emiller"
+      :sasl-username ,(+pass-get-user "irc/freenode.net")
+      :sasl-password (lambda (&rest _) (+pass-get-secret "irc/freenode.net"))
+      :channels ("#emacs")))
+
 ;; org-noter
 (def-package! org-noter
   :config
