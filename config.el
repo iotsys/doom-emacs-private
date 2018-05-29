@@ -65,6 +65,9 @@
 ;; ein
 (set! :ein-notebook-dir "~/src/jupyter/")
 
+;; ein
+(set! :ein-notebook-dir "~/src/jupyter/")
+
 ;; evil-ediff
 (def-package! evil-ediff)
 
