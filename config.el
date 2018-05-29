@@ -18,22 +18,46 @@
  (:leader
    (:prefix "o"
      :desc "Agenda" :n "a" #'org-agenda
-     :desc "eShell" :n "e" #'eshell
+     :desc "eShell" :n "e" #'+eshell/open-popup
      :desc "i.org" :n "o" #'emiller/visit-i-org
      :desc "APP: Email" :n "m" #'=mail)
    (:prefix "p"
      :desc "Counsel-ag" :n "f" #'counsel-ag)
    (:prefix "g"
      :desc "Git Status" :n "g" #'magit-status
-     :desc "List gists" :n "l" #'+gist:list))
+     :desc "List gists" :n "l" #'+gist:list)
+   (:prefix "n"
+     :desc "Org-noter" :n "o" #'org-noter)))
  ;; (:after org
  ;; (:map org-mode-map
  ;;   :n "M-j" #'org-metadown
  ;;   :n "M-k" #'org-metaup))
-)
+
+(after! evil-mc
+  ;; Make evil-mc resume its cursors when I switch to insert mode
+  (add-hook! 'evil-mc-before-cursors-created
+    (add-hook 'evil-insert-state-entry-hook #'evil-mc-resume-cursors nil t))
+  (add-hook! 'evil-mc-after-cursors-deleted
+(remove-hook 'evil-insert-state-entry-hook #'evil-mc-resume-cursors t)))
+
 ;;
 ;; Modules
 ;;
+
+;; org-noter
+(def-package! org-noter
+  :config
+  (map!
+   (:leader
+     (:prefix "n")
+   :desc "Org-noter-insert" :n "i" #'org-noter-insert-note)))
+
+;; evil-ediff
+(def-package! evil-ediff)
+
+;; solidity-mode
+(setq solidity-solc-path "~/.node_modules/lib/node_modules/solc/solcjs")
+(setq solidity-solium-path "~/.node_modules/lib/node_modules/solium/bin/solium.js")
 
 ;; ivy-yasnippet
 (def-package! ivy-yasnippet
