@@ -198,6 +198,7 @@
        ;; toward a specific purpose. They may have additional dependencies and
        ;; should be loaded late.
        :app
+        calendar
         mail
         ;+gmail)    ; emacs as an email client
         ;irc               ; how neckbeards socialize

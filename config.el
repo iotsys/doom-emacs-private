@@ -283,17 +283,6 @@
 ;;     )
 ;;   (run-with-timer 0 60 'emiller-refresh-mu4e-alert-mode-line)
 
-;; Google Calendar
-    (def-package! org-gcal
-      :config
-      (setq org-gcal-client-id "891288798426-io67fcj0069t6k9bldhm4b5mu0pbr0ph.apps.googleusercontent.com"
-            org-gcal-client-secret "D6dedPByS6mzeCvg_FQyAEuk"
-            org-gcal-file-alist '(("edmund.a.miller@gmail.com" .  "~/Dropbox/orgfiles/gcal.org") ;; Edmund Miller
-                                  ("buvuk4b1vjghore8gsq6ifbcnk@group.calendar.google.com" .  "~/Dropbox/orgfiles/Lab_schedule.org") ;; Functional Genomics
-                                  ("sgv1ng3qi5erm89f227h4hm02s@group.calendar.google.com" .  "~/Dropbox/orgfiles/schedule.org") ;; Org
-                                  ))
-    )
-
 ;; PDF-tools
 (def-package! pdf-tools
   :preface
